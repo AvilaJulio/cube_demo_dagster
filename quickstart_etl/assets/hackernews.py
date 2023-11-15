@@ -6,6 +6,7 @@ import matplotlib.pyplot as plt
 import pandas as pd
 import requests
 from dagster import AssetExecutionContext, MetadataValue, asset
+from dagster_cube.cube_resource import CubeResource
 from wordcloud import STOPWORDS, WordCloud
 
 
