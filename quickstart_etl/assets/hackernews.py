@@ -100,6 +100,7 @@ def cube_build_workflow():
             'selector': {
                 'timezones': ['UTC'],
                 'preAggregations': ['Orders.main_test_julio'],
+                "contexts": [{ "securityContext": {} }]
             }
         }
     )
