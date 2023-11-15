@@ -81,3 +81,25 @@ def hackernews_topstories_word_cloud(
     context.add_output_metadata({"plot": MetadataValue.md(md_content)})
 
     return image_data
+
+
+@asset(group_name="cube", compute_kind="Cube Pre-Aggregations")
+def cube_build_workflow():
+    my_cube_resource = CubeResource(
+        instance_url=os.getenv("CUBE_URL"),
+        api_key=os.getenv("CUBE_API_KEY"),
+    )
+
+    response = my_cube_resource.make_request(
+        method="POST",
+        endpoint="pre-aggregations/jobs",
+        data={
+            'action': 'post',
+            'selector': {
+                'timezones': ['UTC'],
+                'preAggregations': ['Orders.main_test_julio'],
+            }
+        }
+    )
+
+    return response
