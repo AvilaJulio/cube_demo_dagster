@@ -12,6 +12,7 @@ setup(
         "textblob",
         "tweepy",
         "wordcloud",
+        "dagster_cube",
     ],
     extras_require={"dev": ["dagster-webserver", "pytest"]},
 )
