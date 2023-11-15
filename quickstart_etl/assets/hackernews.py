@@ -83,7 +83,7 @@ def hackernews_topstories_word_cloud(
     return image_data
 
 
-@asset(group_name="cube", compute_kind="Cube Pre-Aggregations")
+@asset(group_name="cube", compute_kind="Cube Pre-Aggregations", deps=[hackernews_topstories_word_cloud])
 def cube_build_workflow():
     my_cube_resource = CubeResource(
         instance_url=os.getenv("CUBE_URL"),
